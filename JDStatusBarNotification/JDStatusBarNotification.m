@@ -491,11 +491,11 @@
     yPos = -height/2.0;
   }
 
-  // adjust for iPhone X
-  CGFloat topLayoutMargin = JDStatusBarRootVCLayoutMargin().top;
-  if (topLayoutMargin > 0) {
-    height += topLayoutMargin;
-  }
+  // adjust for iPhone X，这里到iPhoneX也不覆盖导航栏，只覆盖到状态栏
+//  CGFloat topLayoutMargin = JDStatusBarRootVCLayoutMargin().top;
+//  if (topLayoutMargin > 0) {
+//    height += topLayoutMargin;
+//  }
 
   _topBar.frame = CGRectMake(0, yPos, width, height);
 }

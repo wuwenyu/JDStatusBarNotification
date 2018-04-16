@@ -58,17 +58,23 @@
 
   // label
   CGFloat topLayoutMargin = JDStatusBarRootVCLayoutMargin().top;
+  CGFloat iPhoneXTop = 0;
+  CGFloat labelOffsetY = 1;
+  if (topLayoutMargin > 0) {
+      iPhoneXTop = 24;
+      labelOffsetY = 1;
+  }
   self.textLabel.frame = CGRectMake(0,
-                                    self.textVerticalPositionAdjustment + topLayoutMargin + 1,
+                                    self.textVerticalPositionAdjustment + iPhoneXTop + labelOffsetY,
                                     self.bounds.size.width,
-                                    self.bounds.size.height - topLayoutMargin - 1);
+                                    self.bounds.size.height - iPhoneXTop - 1);
 
   // activity indicator
   if (_activityIndicatorView ) {
     CGSize textSize = [self currentTextSize];
     CGRect indicatorFrame = _activityIndicatorView.frame;
     indicatorFrame.origin.x = round((self.bounds.size.width - textSize.width)/2.0) - indicatorFrame.size.width - 8.0;
-    indicatorFrame.origin.y = ceil(1+(self.bounds.size.height - indicatorFrame.size.height + topLayoutMargin)/2.0);
+    indicatorFrame.origin.y = ceil(1+(self.bounds.size.height - indicatorFrame.size.height + iPhoneXTop)/2.0);
     _activityIndicatorView.frame = indicatorFrame;
   }
 }
