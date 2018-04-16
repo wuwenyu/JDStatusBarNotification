@@ -62,7 +62,7 @@
   CGFloat labelOffsetY = 1;
   if (topLayoutMargin > 0) {
       iPhoneXTop = 24;
-      labelOffsetY = 1;
+      labelOffsetY = 3;
   }
   self.textLabel.frame = CGRectMake(0,
                                     self.textVerticalPositionAdjustment + iPhoneXTop + labelOffsetY,
